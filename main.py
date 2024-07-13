@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi_sqlalchemy import DBSessionMiddleware, db
-from random import randint
+from random import randint, sample
 from dotenv import load_dotenv
 
 from schema import Image as SchemaImage
@@ -26,6 +26,12 @@ def tags():
         else:
             tags.append(random_tags)
     return tags
+
+def tags():
+    all_tags = ['animal', 'cars', 'tech', 'посуда', 'млекопитающие', 'одежда', 'мебель', 'пингвин', 'лошадь', 'программа', 'искусство', 'стол', 'стул', 'дед мороз', 'праздник', 'деньги']
+    tags = random.sample(all_tags, random.randint(0, 4))
+    return tags
+
 
 @app.post('/load_image/')
 async def load_image(image: SchemaImage):
