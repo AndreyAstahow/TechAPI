@@ -17,18 +17,6 @@ app.add_middleware(DBSessionMiddleware, db_url=os.environ['DATABASE_URL'])
 
 def tags():
     all_tags = ['animal', 'cars', 'tech', 'посуда', 'млекопитающие', 'одежда', 'мебель', 'пингвин', 'лошадь', 'программа', 'искусство', 'стол', 'стул', 'дед мороз', 'праздник', 'деньги']
-    tags = []
-    random_number = randint(0, 4)
-    while len(tags) < random_number:
-        random_tags = all_tags[randint(0, 15)]
-        if random_tags in tags:
-            continue
-        else:
-            tags.append(random_tags)
-    return tags
-
-def tags():
-    all_tags = ['animal', 'cars', 'tech', 'посуда', 'млекопитающие', 'одежда', 'мебель', 'пингвин', 'лошадь', 'программа', 'искусство', 'стол', 'стул', 'дед мороз', 'праздник', 'деньги']
     tags = random.sample(all_tags, random.randint(0, 4))
     return tags
 
