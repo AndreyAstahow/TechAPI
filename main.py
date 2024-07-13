@@ -22,7 +22,7 @@ def tags():
 
 
 @app.post('/load_image/')
-async def load_image(image: SchemaImage):
+def load_image(image: SchemaImage):
     image_tags = tags()
     db_image = ModelImageInfo(url = image.url, tags = image_tags)
     db.session.add(db_image)
@@ -30,22 +30,22 @@ async def load_image(image: SchemaImage):
     return db_image
 
 @app.get('/get_image/')
-async def get_image():
+def get_image():
     image = db.session.query(ModelImageInfo).all()
     return image
 
 @app.get('/get_image/{id}')
-async def get_image_id(id: int):
+def get_image_id(id: int):
     image = db.session.query(ModelImageInfo).filter(ModelImageInfo.id == id).first()
     return image
 
 @app.get('/get_url_by_tags/')
-async def get_url_by_tags(tags: str):
+def get_url_by_tags(tags: str):
     image = db.session.query(ModelImageInfo).filter(ModelImageInfo.tags == tags).all()
     return image
 
 @app.get('/get_image_by_tags_and_id/')
-async def get_image_by_tags_and_id(id: int, tags: str):
+def get_image_by_tags_and_id(id: int, tags: str):
     image_dict = []
     image_id = db.session.query(ModelImageInfo).filter(ModelImageInfo.id == id).all()
     image_tags = db.session.query(ModelImageInfo).filter(ModelImageInfo.tags == tags).all()
@@ -54,7 +54,7 @@ async def get_image_by_tags_and_id(id: int, tags: str):
     return image_dict
 
 @app.get('/get_id_by_tags/')
-async def get_id_by_tags(tags: str):
+def get_id_by_tags(tags: str):
     image = db.session.query(ModelImageInfo).filter(ModelImageInfo.tags == tags).all()
     return image
 
