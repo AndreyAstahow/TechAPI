@@ -21,7 +21,7 @@ class ImageService():
         image = db.session.query(ModelImageInfo).filter(ModelImageInfo.tags == tags).all()
         return image
     
-    def image_by_tags_and_id(id: int, tags: str):
+    def get_image_by_tags_and_id(id: int, tags: str):
         image_dict = []
         image_id = db.session.query(ModelImageInfo).filter(ModelImageInfo.id == id).all()
         image_tags = db.session.query(ModelImageInfo).filter(ModelImageInfo.tags == tags).all()
@@ -30,7 +30,7 @@ class ImageService():
         return image_dict
     
     def get_id_by_tags(tags: str):
-        image = db.session.query(ModelImageInfo).filter(ModelImageInfo.tags.ilike(f"%{tags}%")).first()
+        image = db.session.query(ModelImageInfo).filter(ModelImageInfo.tags.ilike(f'%{tags}%')).all()
         return image
     
     def load_image(image: SchemaImage):
