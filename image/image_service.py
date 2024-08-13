@@ -30,7 +30,7 @@ class ImageService():
         return image_dict
     
     def get_id_by_tags(tags: str):
-        image = db.session.query(ModelImageInfo).filter(ModelImageInfo.tags.ilike(f'%{tags}%')).all()
+        image = db.session.query(ModelImageInfo).filter(ModelImageInfo.tags.ilike(f'%{tags}%')).first()
         return image
     
     def load_image(image: SchemaImage):
