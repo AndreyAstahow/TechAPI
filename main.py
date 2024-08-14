@@ -16,5 +16,3 @@ app.include_router(image)
 if __name__ == "__main__":
     uvicorn.run(app)
 
-
-test = 'test'
