@@ -1,0 +1,7 @@
+fastapi
+fastapi_sqlalchemy
+pydantic
+dotenv
+uvicorn
+os
+random

@@ -32,19 +32,3 @@ def get_id_by_tags(tags: str):
 @image.post('/image/')
 def load_image(image: SchemaImage):
     return ImageService.load_image(image)
-
-@image.post('/image-test/')
-def load_test(image: SchemaImage):
-    return ImageService.load_test(image)
-
-@image.get('/images-test/')
-def images_test():
-    return ImageService.images_test()
-
-@image.get('/image/id-by-tags-test/')
-def get_id_by_tags(tags: str):
-    return ImageService.get_id_by_tags_test(tags)
-
-@image.post('/load-data/')
-def load_data(image: SchemaImage):
-    return ImageService.load_data(image)

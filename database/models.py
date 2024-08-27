@@ -8,10 +8,3 @@ class ImageInfo(Base):
     id = Column(Integer, primary_key=True, index=True)
     url = Column(String)
     tags = Column(String)
-
-
-# class ImageTest(Base):
-#     __tablename__ = 'image_test'
-#     id = Column(Integer, primary_key=True, index=True)
-#     url = Column(String)
-#     tags = Column(String)
